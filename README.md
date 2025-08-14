@@ -199,6 +199,6 @@ Se você encontrar algum problema ou tiver dúvidas:
 ---
 
 <div align="center">
-  <p>Feito com ❤️ por <a href="https://github.com/ailtondba">Ailton DBA</a></p>
+  <p>criado por ailtondba</p>
   <p>⭐ Se este projeto te ajudou, considere dar uma estrela!</p>
 </div>
