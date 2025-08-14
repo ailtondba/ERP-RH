@@ -92,7 +92,7 @@ npm run build
 
 **Versão Atual: 28.3.3**
 
-- 📦 [Download ERP-RH-win32-x64.7z](./releases/ERP-RH-win32-x64.7z)
+- 📦 [Download ERP-RH-win32-x64.7z](https://drive.google.com/file/d/1w4Fs5xBWWbxpaM9Q2NocW6W9S-jY_UpU/view?usp=sharing)
 - 💾 Tamanho: 337MB (zipado)
 - 🖥️ Compatível com Windows 10/11 (64-bit)
 
