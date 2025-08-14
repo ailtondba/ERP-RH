@@ -88,13 +88,7 @@ npm run dev
 npm run build
 ```
 
-### Download do Executável
 
-**Versão Atual: 28.3.3**
-
-- 📥 [Download ERP-RH.exe](https://github.com/ailtondba/ERP-RH/releases/latest)
-- 💾 Tamanho: ~35MB (compactado)
-- 🖥️ Compatível com Windows 10/11
 
 ## 🎮 Como Usar
 
@@ -158,9 +152,9 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-**Ailton DBA**
+**Criado por ailtondba**
 - GitHub: [@ailtondba](https://github.com/ailtondba)
-- LinkedIn: [Ailton DBA](https://linkedin.com/in/ailtondba)
+- Email: ailtonazure@gmail.com
 
 ## 📞 Suporte
 
@@ -168,7 +162,7 @@ Se você encontrar algum problema ou tiver dúvidas:
 
 - 🐛 [Reporte um bug](https://github.com/ailtondba/ERP-RH/issues)
 - 💡 [Solicite uma feature](https://github.com/ailtondba/ERP-RH/issues)
-- 📧 Entre em contato: [seu-email@exemplo.com]
+- 📧 Entre em contato: ailtonazure@gmail.com
 
 ## 🎯 Roadmap
 
