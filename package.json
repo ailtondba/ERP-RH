@@ -1,0 +1,51 @@
+{
+  "name": "erp-rh-desktop",
+  "version": "1.0.0",
+  "description": "Aplicativo de desktop para o ERP de RH",
+  "main": "main.js",
+  "author": "Sua Empresa",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "pack": "electron-packager . ERP-RH --platform=win32 --arch=x64 --out=dist-packager-new --overwrite"
+  },
+  "build": {
+    "appId": "com.suaempresa.erprh",
+    "productName": "ERP RH",
+    "files": [
+      "main.js",
+      "frontend/build/**/*",
+      "backend/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/database.sqlite",
+        "to": "database.sqlite"
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "negocios.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "nodeGypRebuild": false,
+    "buildDependenciesFromSource": false
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron-log": "^5.4.2",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.1",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.6.4",
+    "electron-packager": "^17.1.2"
+  }
+}
