@@ -88,7 +88,30 @@ npm run dev
 npm run build
 ```
 
+## 📥 Download do Executável
 
+**Versão Atual: 28.3.3**
+
+- 📦 [Download ERP-RH-win32-x64.7z](./releases/ERP-RH-win32-x64.7z)
+- 💾 Tamanho: ~35MB (compactado)
+- 🖥️ Compatível com Windows 10/11 (64-bit)
+
+### 🚀 Como Instalar e Usar
+
+1. **Download e Extração**
+   - Baixe o arquivo `ERP-RH-win32-x64.7z`
+   - Extraia o conteúdo para uma pasta de sua escolha
+   - Não é necessário instalação
+
+2. **Executar o Sistema**
+   - Navegue até a pasta extraída
+   - Execute o arquivo `ERP-RH.exe`
+   - O sistema abrirá automaticamente
+
+3. **Login Inicial**
+   - **Usuário:** `admin@sistema.com`
+   - **Senha:** `admin123`
+   - Após o primeiro login, recomenda-se alterar a senha
 
 ## 🎮 Como Usar
 
