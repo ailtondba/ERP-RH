@@ -1,0 +1,27 @@
+# GitHub language detection configuration
+*.js linguist-language=JavaScript
+*.html linguist-language=HTML
+*.css linguist-language=CSS
+*.json linguist-documentation=false
+*.md linguist-documentation=true
+*.txt linguist-documentation=true
+
+# Ensure frontend files are properly detected
+frontend/src/*.css linguist-language=CSS
+frontend/public/*.html linguist-language=HTML
+
+# Backend files
+backend/*.js linguist-language=JavaScript
+
+# Exclude generated files from language stats
+node_modules/* linguist-vendored
+package-lock.json linguist-generated
+dist/* linguist-generated
+build/* linguist-generated
+*.min.js linguist-generated
+*.min.css linguist-generated
+
+# Include specific file types in language detection
+*.jsx linguist-language=JavaScript
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript

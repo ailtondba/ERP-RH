@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP-RH - Dashboard</title>
+    <link rel="stylesheet" href="../src/styles/main.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="../public/images/logo.png" alt="ERP-RH" class="h-8 w-8 mr-2">
+                    <h1 class="text-xl font-bold">ERP-RH</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-user mr-2"></i>
+                        Perfil
+                    </button>
+                    <button class="btn">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+                        Sair
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="space-y-2">
+                <a href="#dashboard" class="flex items-center p-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-tachometer-alt mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="#funcionarios" class="flex items-center p-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-users mr-3"></i>
+                    Funcionários
+                </a>
+                <a href="#servidores" class="flex items-center p-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-server mr-3"></i>
+                    Servidores
+                </a>
+                <a href="#ferias" class="flex items-center p-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    Férias
+                </a>
+                <a href="#aniversariantes" class="flex items-center p-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-birthday-cake mr-3"></i>
+                    Aniversariantes
+                </a>
+                <a href="#relatorios" class="flex items-center p-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-chart-bar mr-3"></i>
+                    Relatórios
+                </a>
+                <a href="#configuracoes" class="flex items-center p-2 rounded hover:bg-gray-100">
+                    <i class="fas fa-cog mr-3"></i>
+                    Configurações
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Header -->
+                <header class="mb-6">
+                    <h2 class="text-2xl font-bold mb-2">Dashboard</h2>
+                    <p class="text-gray-600">Visão geral do sistema de recursos humanos</p>
+                </header>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="card">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 mr-4">
+                                <i class="fas fa-users text-blue-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Total Funcionários</p>
+                                <p class="text-2xl font-bold" id="total-funcionarios">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 mr-4">
+                                <i class="fas fa-user-check text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Funcionários Ativos</p>
+                                <p class="text-2xl font-bold" id="funcionarios-ativos">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 mr-4">
+                                <i class="fas fa-calendar-alt text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Em Férias</p>
+                                <p class="text-2xl font-bold" id="em-ferias">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-purple-100 mr-4">
+                                <i class="fas fa-birthday-cake text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Aniversariantes</p>
+                                <p class="text-2xl font-bold" id="aniversariantes-mes">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <div class="card">
+                        <h3 class="text-lg font-semibold mb-4">Funcionários por Departamento</h3>
+                        <canvas id="departamentos-chart" width="400" height="200"></canvas>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-lg font-semibold mb-4">Admissões vs Demissões</h3>
+                        <canvas id="admissoes-chart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold mb-4">Atividades Recentes</h3>
+                    <div class="space-y-3" id="atividades-recentes">
+                        <!-- Atividades serão carregadas via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../src/services/api.js"></script>
+    <script>
+        // Inicialização do dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+            initializeCharts();
+        });
+
+        async function loadDashboardData() {
+            try {
+                // Carregar estatísticas
+                const stats = await fetch('/api/dashboard/stats').then(r => r.json());
+                document.getElementById('total-funcionarios').textContent = stats.totalFuncionarios;
+                document.getElementById('funcionarios-ativos').textContent = stats.funcionariosAtivos;
+                document.getElementById('em-ferias').textContent = stats.emFerias;
+                document.getElementById('aniversariantes-mes').textContent = stats.aniversariantesMes;
+
+                // Carregar atividades recentes
+                const atividades = await fetch('/api/dashboard/atividades').then(r => r.json());
+                renderAtividades(atividades);
+            } catch (error) {
+                console.error('Erro ao carregar dados do dashboard:', error);
+            }
+        }
+
+        function renderAtividades(atividades) {
+            const container = document.getElementById('atividades-recentes');
+            container.innerHTML = atividades.map(atividade => `
+                <div class="flex items-center p-3 bg-gray-50 rounded">
+                    <div class="p-2 rounded-full bg-blue-100 mr-3">
+                        <i class="fas fa-${atividade.icon} text-blue-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-medium">${atividade.titulo}</p>
+                        <p class="text-sm text-gray-600">${atividade.descricao}</p>
+                    </div>
+                    <span class="text-sm text-gray-500">${atividade.tempo}</span>
+                </div>
+            `).join('');
+        }
+
+        function initializeCharts() {
+            // Gráfico de departamentos
+            const ctx1 = document.getElementById('departamentos-chart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['TI', 'RH', 'Financeiro', 'Vendas', 'Marketing'],
+                    datasets: [{
+                        data: [12, 8, 6, 15, 9],
+                        backgroundColor: [
+                            '#3B82F6',
+                            '#10B981',
+                            '#F59E0B',
+                            '#EF4444',
+                            '#8B5CF6'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Gráfico de admissões vs demissões
+            const ctx2 = document.getElementById('admissoes-chart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                    datasets: [{
+                        label: 'Admissões',
+                        data: [5, 8, 3, 7, 6, 9],
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: 'Demissões',
+                        data: [2, 3, 1, 4, 2, 3],
+                        borderColor: '#EF4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
